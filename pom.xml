@@ -17,6 +17,14 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.2.5.RELEASE</spring.version>
+        <!-- mybatis 版本号 -->
+        <mybatis.version>3.2.4</mybatis.version>
+        <!-- mybatis spring 关系jar 版本号 -->
+        <mybatis.spring.version>1.2.2</mybatis.spring.version>
+        <!-- mysql驱动版本号 -->
+        <mysql.version>5.1.29</mysql.version>
+        <!-- 阿里巴巴mysql 数据源版本号 -->
+        <druid.version>1.0.2</druid.version>
     </properties>
 
     <dependencies>
@@ -100,6 +108,35 @@
             <artifactId>zkclient</artifactId>
             <version>0.10</version>
         </dependency>
+
+        <!-- mybatis核心包 -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+
+        <!-- mybatis/spring包 -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis.spring.version}</version>
+        </dependency>
+
+        <!-- mysql驱动包 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
+        <!-- 阿里巴巴数据源包 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+
     </dependencies>
 
 
