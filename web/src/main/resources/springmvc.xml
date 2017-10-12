@@ -7,14 +7,14 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <dubbo:annotation package="com.wangli.controller"/>
-    <!-- 注解驱动 -->
-    <mvc:annotation-driven/>
 
-    <context:component-scan base-package="com.wangli.controller">
+
+    <context:component-scan base-package="com.wangli.controller" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <!-- 注解驱动 -->
+    <mvc:annotation-driven/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
