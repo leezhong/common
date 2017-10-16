@@ -1,17 +1,21 @@
 package com.wangli.entity;
 
-import java.io.Serializable;
+import java.util.Date;
 
-public class TestUser implements Serializable{
+public class TestUser {
+    private Integer id;
 
-    private int id;
     private String name;
 
-    public int getId() {
+    private Integer age;
+
+    private Date createTime;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -20,7 +24,22 @@ public class TestUser implements Serializable{
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }

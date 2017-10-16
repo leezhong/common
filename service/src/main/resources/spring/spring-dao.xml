@@ -5,6 +5,14 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:config/config.properties</value>
+                <value>classpath:config/jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
@@ -22,18 +30,17 @@
         <property name="removeAbandonedTimeout" value="${removeAbandoned_timeout}"/>
         <property name="connectionProperties" value="clientEncoding=UTF-8"/>
         <property name="filters" value="stat,wall"/>
-
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
           p:dataSource-ref="dataSource"
           p:configLocation="classpath:mybatis-config.xml"
-          p:mapperLocations="classpath:mapper/*.xml"
-          p:typeAliasesPackage="com.leezhong.domain"
+          p:mapperLocations="classpath:mapper/TestUserMapper.xml"
+          p:typeAliasesPackage="com.wangli.entity"
     />
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-          p:basePackage="com.leezhong.dao"
+          p:basePackage="com.wangli.dao"
           p:sqlSessionFactoryBeanName="sqlSessionFactory"
     />
 
