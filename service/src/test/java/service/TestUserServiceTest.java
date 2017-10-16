@@ -1,8 +1,7 @@
-package mapper;
+package service;
 
-import com.wangli.dao.TestUserMapper;
-import com.wangli.entity.TestUser;
 import com.wangli.service.TestService;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,18 +9,18 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:spring/spring-dao.xml")
-public class TestUserMapperTest {
+@ContextConfiguration("classpath:spring/dubbo-provider.xml")
+public class TestUserServiceTest {
 
     @Autowired
-    private TestUserMapper testUserMapper;
+    private TestService testService;
 
 
     @Test
-    public void testUserMapper(){
+    public void testUser1(){
 
-        TestUser testUser = testUserMapper.selectByPrimaryKey(1);
-        System.out.println(testUser);
+        int id = testService.createUser("liz", 88);
+        Assert.assertTrue(id>0);
 
     }
 
